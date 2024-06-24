@@ -3,24 +3,11 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Lenis from "lenis";
-import { useEffect } from "react";
 
 const ShilpBoard = () => {
     const playSvg = <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
         <path d="M0 14V0L11 7L0 14Z" fill="#E6E6E6" />
     </svg>
-
-    useEffect(() => {
-        const lenis = new Lenis();
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-    }, []);
 
     return (
         <div className="relative tracking-tight">
@@ -29,7 +16,7 @@ const ShilpBoard = () => {
             <div className="lg:max-w-[2000px] mx-auto">
                 <header>
                     {/* navbar */}
-                    <div className="flex justify-between items-center px-10 py-5">
+                    <div className="flex justify-between items-center px-5 lg:px-10 py-5">
                         <div className="flex items-center gap-x-[8px]">
                             <motion.div
                                 initial={{ rotate: 0 }}
@@ -49,9 +36,9 @@ const ShilpBoard = () => {
                             <div className="flex items-center cursor-pointer gap-x-[8px]">
                                 Product <ChevronDown />
                             </div>
-                            <div className="navbaritem">Changelog</div>
-                            <div className="navbaritem">Pricing</div>
-                            <div className="navbaritem">Login</div>
+                            <div className="cursor-pointer">Changelog</div>
+                            <div className="cursor-pointer">Pricing</div>
+                            <div className="cursor-pointer">Login</div>
                             <button
                                 className="py-[10px] px-[16px] bg-[#333] text-white rounded-[6px] hover:opacity-95"
                             >Get Started</button>
@@ -79,7 +66,7 @@ const ShilpBoard = () => {
                             initial={{ rotateY: "45deg", opacity: 0, y: 100 }}
                             animate={{ rotateY: "0deg", opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
-                            className="lg:max-w-[593px] text-[56px] font-[600] tracking-tighter text-center"
+                            className="lg:max-w-[593px] text-5xl lg:text-[56px] font-[600] tracking-tighter text-center"
                             style={{ lineHeight: "135%" }}
                         >
                             Rev up your university portal with ShilpBoard
@@ -99,7 +86,7 @@ const ShilpBoard = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5, duration: 1 }}
-                            className="px-[24px] py-[12px] text-[24px] font-[500] bg-[#0064E5] rounded-[12px] text-white flex items-center gap-x-[8px] hover:opacity-95">
+                            className="px-[14px] lg:px-[24px] py-[10px] lg:py-[12px] text-[24px] font-[500] bg-[#0064E5] rounded-[12px] text-white flex items-center gap-x-[8px] hover:opacity-95">
                             Get started for free <ArrowRight />
                         </motion.button>
                     </div>
@@ -117,6 +104,7 @@ const ShilpBoard = () => {
                                 height={100}
                                 layout="responsive"
                                 loading="lazy"
+                                className="hidden lg:block"
                             />
                         </motion.div>
                     </div>
